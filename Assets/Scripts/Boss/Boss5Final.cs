@@ -131,7 +131,7 @@ public class Boss5Final : BossBehavior
                     if (script != null)
                     {
                         script.isBoomerang = true;
-                        script.boomerangTime = 3.5f; // Expands huge, then crushes inward
+                        script.boomerangTime = 4.5f; // Expands huge, then crushes inward
                     }
                 }
             }
@@ -171,7 +171,7 @@ public class Boss5Final : BossBehavior
                         if (script != null)
                         {
                             script.isBoomerang = true;
-                            script.boomerangTime = 2.5f;
+                            script.boomerangTime = 3.5f;
                         }
                     }
                 }
@@ -238,7 +238,7 @@ public class Boss5Final : BossBehavior
                     if (script != null)
                     {
                         script.isBoomerang = true;
-                        script.boomerangTime = 1.5f; // Short heartbeat
+                        script.boomerangTime = 2.5f; // Short heartbeat
                     }
                 }
             }

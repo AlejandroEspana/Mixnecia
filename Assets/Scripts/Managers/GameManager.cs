@@ -23,6 +23,9 @@ public class GameManager : MonoBehaviour
     public AudioClip pauseMusic;
     public AudioClip deathMusic;
 
+    // Narrative
+    public BossNarrative CurrentBossNarrative { get; set; }
+
     public event Action<int> OnScoreChanged;
     public event Action<int> OnComboChanged;
     public event Action OnGameOver;

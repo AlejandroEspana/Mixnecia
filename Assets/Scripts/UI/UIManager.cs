@@ -8,6 +8,7 @@ public class UIManager : MonoBehaviour
     public GameObject gameOverPanel;
     public GameObject levelCompletePanel;
     public GameObject pausePanel;
+    public GameObject restScreenPanel;
 
     [Header("UI Elements")]
     public TextMeshProUGUI scoreText;
@@ -77,6 +78,7 @@ public class UIManager : MonoBehaviour
         if (gameOverPanel != null) gameOverPanel.SetActive(false);
         if (levelCompletePanel != null) levelCompletePanel.SetActive(false);
         if (pausePanel != null) pausePanel.SetActive(false);
+        if (restScreenPanel != null) restScreenPanel.SetActive(false);
     }
 
     private void OnDestroy()
@@ -169,6 +171,42 @@ public class UIManager : MonoBehaviour
     }
 
     public void NextLevel()
+    {
+        if (GameManager.Instance != null && GameManager.Instance.CurrentBossNarrative != null)
+        {
+            DialogueSequence lore = GameManager.Instance.CurrentBossNarrative.loreSequence;
+            if (lore != null && lore.lines != null && lore.lines.Count > 0)
+            {
+                if (levelCompletePanel != null) levelCompletePanel.SetActive(false);
+                
+                if (DialogueManager.Instance != null)
+                {
+                    DialogueManager.Instance.PlaySequence(lore, () => {
+                        ShowRestScreen();
+                    });
+                    return;
+                }
+            }
+        }
+
+        ShowRestScreen();
+    }
+
+    private void ShowRestScreen()
+    {
+        if (levelCompletePanel != null) levelCompletePanel.SetActive(false);
+        
+        if (restScreenPanel != null)
+        {
+            restScreenPanel.SetActive(true);
+        }
+        else
+        {
+            if (SceneController.Instance != null) SceneController.Instance.LoadNextLevel();
+        }
+    }
+
+    public void ContinueFromRestScreen()
     {
         if (SceneController.Instance != null)
         {
