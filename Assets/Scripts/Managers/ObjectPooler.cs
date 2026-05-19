@@ -80,4 +80,19 @@ public class ObjectPooler : MonoBehaviour
 
         return objectToSpawn;
     }
+
+    public void DeactivateAllObjects()
+    {
+        if (poolDictionary == null) return;
+        foreach (var poolQueue in poolDictionary.Values)
+        {
+            foreach (var obj in poolQueue)
+            {
+                if (obj != null && obj.activeInHierarchy)
+                {
+                    obj.SetActive(false);
+                }
+            }
+        }
+    }
 }

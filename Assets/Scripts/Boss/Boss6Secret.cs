@@ -216,7 +216,7 @@ public class Boss6Secret : BossBehavior
                     if (script != null)
                     {
                         script.isBoomerang = true;
-                        script.boomerangTime = 2.5f; 
+                        script.boomerangTime = 3.5f; 
                     }
                 }
             }
@@ -287,6 +287,7 @@ public class Boss6Secret : BossBehavior
                 {
                     Vector3 dir = player.transform.position - transform.position;
                     float targetAngle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+                    targetAngle -= transform.eulerAngles.z;
                     SpawnBullet(targetAngle);
                     SpawnBullet(targetAngle - 10f);
                     SpawnBullet(targetAngle + 10f);

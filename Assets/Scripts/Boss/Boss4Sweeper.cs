@@ -8,9 +8,11 @@ public class Boss4Sweeper : BossBehavior
         if (patternIndex == 0) yield return StartCoroutine(PatternA());
         else if (patternIndex == 1) yield return StartCoroutine(PatternB());
         else if (patternIndex == 2) yield return StartCoroutine(PatternC());
-        else yield return StartCoroutine(PatternD());
+        else if (patternIndex == 3) yield return StartCoroutine(PatternD());
+        else if (patternIndex == 4) yield return StartCoroutine(PatternE());
+        else yield return StartCoroutine(PatternF());
         
-        patternIndex = (patternIndex + 1) % 4;
+        patternIndex = (patternIndex + 1) % 6;
         if (stateMachine != null) stateMachine.TransitionToState(BossState.Moving);
     }
 
@@ -102,17 +104,18 @@ public class Boss4Sweeper : BossBehavior
     {
         // Boomerang Rose Curve
         float time = 0f;
+        float baseRotation = 0f;
         while (time < attackDuration)
         {
-            int petals = 6;
-            int bulletsPerPetal = 10;
+            int petals = 8;
+            int bulletsPerPetal = 12;
             
             for (int p = 0; p < petals; p++)
             {
-                float petalBaseAngle = p * (360f / petals);
+                float petalBaseAngle = p * (360f / petals) + baseRotation;
                 for (int i = 0; i < bulletsPerPetal; i++)
                 {
-                    float spread = -15f + (i * (30f / bulletsPerPetal));
+                    float spread = -10f + (i * (20f / bulletsPerPetal));
                     float finalAngle = petalBaseAngle + spread;
                     
                     GameObject b = SpawnBullet(finalAngle);
@@ -122,15 +125,79 @@ public class Boss4Sweeper : BossBehavior
                         if (script != null)
                         {
                             script.isBoomerang = true;
-                            script.boomerangTime = 2.5f; // Stops and reverses after 2.5s
+                            script.boomerangTime = 2.8f;
                         }
                     }
                 }
             }
 
-            yield return new WaitForSeconds(3.0f); // Shoot a rose every 3.0s
-            time += 3.0f;
+            baseRotation += 25f; // Rotate slowly
+            yield return new WaitForSeconds(2.0f);
+            time += 2.0f;
         }
-        yield return new WaitForSeconds(2.5f); // Wait for last boomerang
+        yield return new WaitForSeconds(2.8f);
+    }
+
+    private IEnumerator PatternE()
+    {
+        // Laser Mesh (Wall-Sweep)
+        float time = 0f;
+        float sweepAngle = -45f;
+        bool sweepRight = true;
+        
+        while (time < attackDuration)
+        {
+            // Thick line
+            for (int i = 0; i < 5; i++)
+            {
+                SpawnBullet(sweepAngle + (i * 2f));
+            }
+            
+            if (sweepRight)
+            {
+                sweepAngle += 15f;
+                if (sweepAngle > 45f) sweepRight = false;
+            }
+            else
+            {
+                sweepAngle -= 15f;
+                if (sweepAngle < -45f) sweepRight = true;
+            }
+
+            // Mesh scattering
+            if (Mathf.FloorToInt(time * 10) % 2 == 0)
+            {
+                SpawnBullet(Random.Range(-90f, 90f));
+            }
+
+            yield return new WaitForSeconds(0.1f);
+            time += 0.1f;
+        }
+        yield return new WaitForSeconds(1f);
+    }
+
+    private IEnumerator PatternF()
+    {
+        // Double Helix Boomerang
+        float time = 0f;
+        while (time < attackDuration)
+        {
+            float sineAngle = Mathf.Sin(time * 5f) * 60f;
+            
+            GameObject b1 = SpawnBullet(sineAngle);
+            GameObject b2 = SpawnBullet(-sineAngle);
+
+            if (b1 != null && b2 != null)
+            {
+                Bullet s1 = b1.GetComponent<Bullet>();
+                Bullet s2 = b2.GetComponent<Bullet>();
+                if (s1 != null) { s1.isBoomerang = true; s1.boomerangTime = 2.5f; }
+                if (s2 != null) { s2.isBoomerang = true; s2.boomerangTime = 2.5f; }
+            }
+
+            yield return new WaitForSeconds(0.08f);
+            time += 0.08f;
+        }
+        yield return new WaitForSeconds(2.5f);
     }
 }

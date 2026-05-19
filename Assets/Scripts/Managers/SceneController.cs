@@ -28,11 +28,13 @@ public class SceneController : MonoBehaviour
 
     public void LoadMainMenu()
     {
+        if (ObjectPooler.Instance != null) ObjectPooler.Instance.DeactivateAllObjects();
         SceneManager.LoadScene("MainMenu");
     }
 
     public void LoadLevel(int levelIndex)
     {
+        if (ObjectPooler.Instance != null) ObjectPooler.Instance.DeactivateAllObjects();
         SceneManager.LoadScene("Level" + levelIndex);
         if (GameManager.Instance != null)
         {
@@ -42,6 +44,7 @@ public class SceneController : MonoBehaviour
 
     public void RetryCurrentLevel()
     {
+        if (ObjectPooler.Instance != null) ObjectPooler.Instance.DeactivateAllObjects();
         int index = SceneManager.GetActiveScene().buildIndex;
         SceneManager.LoadScene(index);
         if (GameManager.Instance != null)
@@ -52,6 +55,7 @@ public class SceneController : MonoBehaviour
 
     public void LoadNextLevel()
     {
+        if (ObjectPooler.Instance != null) ObjectPooler.Instance.DeactivateAllObjects();
         int currentIndex = SceneManager.GetActiveScene().buildIndex;
         int nextIndex = currentIndex + 1;
 
@@ -82,6 +86,7 @@ public class SceneController : MonoBehaviour
 
     public void LoadSecretLevel()
     {
+        if (ObjectPooler.Instance != null) ObjectPooler.Instance.DeactivateAllObjects();
         SceneManager.LoadScene("SecretLevel");
     }
 }
