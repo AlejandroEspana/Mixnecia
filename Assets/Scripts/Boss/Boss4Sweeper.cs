@@ -38,7 +38,7 @@ public class Boss4Sweeper : BossBehavior
                 {
                     Vector3 direction = player.position - transform.position;
                     float baseAngle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg - 90f;
-                    baseAngle -= transform.eulerAngles.z;
+                    baseAngle -= (transform.eulerAngles.z + 180f);
                     
                     SpawnBullet(baseAngle);
                     SpawnBullet(baseAngle - 10f);
@@ -148,7 +148,7 @@ public class Boss4Sweeper : BossBehavior
         while (time < attackDuration)
         {
             // Thick line
-            for (int i = 0; i < 5; i++)
+            for (int i = 0; i < 3; i++)
             {
                 SpawnBullet(sweepAngle + (i * 2f));
             }
@@ -165,9 +165,9 @@ public class Boss4Sweeper : BossBehavior
             }
 
             // Mesh scattering
-            if (Mathf.FloorToInt(time * 10) % 2 == 0)
+            if (Mathf.FloorToInt(time * 8) % 2 == 0)
             {
-                SpawnBullet(Random.Range(-90f, 90f));
+                SpawnBullet(Random.Range(-100f, 100f));
             }
 
             yield return new WaitForSeconds(0.1f);

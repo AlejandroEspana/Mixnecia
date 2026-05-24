@@ -94,7 +94,7 @@ public class Boss6Secret : BossBehavior
                 {
                     Vector3 direction = player.position - transform.position;
                     float baseAngle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg - 90f;
-                    SpawnBullet(baseAngle - transform.eulerAngles.z);
+                    SpawnBullet(baseAngle - (transform.eulerAngles.z + 180f));
                 }
             }
 
@@ -286,8 +286,8 @@ public class Boss6Secret : BossBehavior
                 if (player != null)
                 {
                     Vector3 dir = player.transform.position - transform.position;
-                    float targetAngle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
-                    targetAngle -= transform.eulerAngles.z;
+                    float targetAngle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg - 90f;
+                    targetAngle -= (transform.eulerAngles.z + 180f);
                     SpawnBullet(targetAngle);
                     SpawnBullet(targetAngle - 10f);
                     SpawnBullet(targetAngle + 10f);

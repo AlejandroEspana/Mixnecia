@@ -8,9 +8,9 @@ public class BossBehavior : MonoBehaviour
     [Header("Movement Settings")]
     public float moveSpeed = 2f;
     [Tooltip("Límite máximo a la izquierda (Min X)")]
-    public float minMovementX = -3f;
+    public float minMovementX = -2.74f;
     [Tooltip("Límite máximo a la derecha (Max X)")]
-    public float maxMovementX = 3f;
+    public float maxMovementX = 7f;
     protected Vector3 targetPosition;
 
     [Header("Attack Settings")]
@@ -96,7 +96,30 @@ public class BossBehavior : MonoBehaviour
     protected GameObject SpawnBullet(float angleOffset)
     {
         if (ObjectPooler.Instance == null) return null;
-        Quaternion rotation = Quaternion.Euler(0, 0, angleOffset) * transform.rotation;
+        Quaternion rotation = Quaternion.Euler(0, 0, angleOffset + 180f) * transform.rotation;
         return ObjectPooler.Instance.SpawnFromPool(bulletTag, transform.position, rotation);
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        // Draw the movement limits in the Unity Editor
+        Gizmos.color = Color.yellow;
+        Vector3 leftLimit = new Vector3(minMovementX, transform.position.y, transform.position.z);
+        Vector3 rightLimit = new Vector3(maxMovementX, transform.position.y, transform.position.z);
+        
+        // Draw a line representing the movement path
+        Gizmos.DrawLine(leftLimit, rightLimit);
+        
+        // Draw small spheres at the boundaries
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(leftLimit, 0.2f);
+        Gizmos.DrawWireSphere(rightLimit, 0.2f);
+
+        // Draw the current target position if the game is running
+        if (Application.isPlaying)
+        {
+            Gizmos.color = Color.green;
+            Gizmos.DrawWireSphere(targetPosition, 0.3f);
+        }
     }
 }
