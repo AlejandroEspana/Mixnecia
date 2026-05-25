@@ -143,6 +143,10 @@ public class UIManager : MonoBehaviour
     {
         if (precisionStaminaSlider != null)
         {
+            if (playerController != null)
+            {
+                precisionStaminaSlider.gameObject.SetActive(playerController.HasPrecisionUnlocked);
+            }
             precisionStaminaSlider.maxValue = maxStamina;
             precisionStaminaSlider.value = currentStamina;
         }

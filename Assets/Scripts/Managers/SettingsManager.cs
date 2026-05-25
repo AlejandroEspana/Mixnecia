@@ -29,7 +29,7 @@ public class SettingsManager : MonoBehaviour
 
         // Load Fullscreen (default true)
         bool isFullscreen = PlayerPrefs.GetInt(FULLSCREEN_KEY, 1) == 1;
-        Screen.fullScreen = isFullscreen;
+        Screen.SetResolution(1920, 1080, isFullscreen);
     }
 
     public void SetVolume(float volume)
@@ -41,7 +41,7 @@ public class SettingsManager : MonoBehaviour
 
     public void SetFullscreen(bool isFullscreen)
     {
-        Screen.fullScreen = isFullscreen;
+        Screen.SetResolution(1920, 1080, isFullscreen);
         PlayerPrefs.SetInt(FULLSCREEN_KEY, isFullscreen ? 1 : 0);
         PlayerPrefs.Save();
     }

@@ -35,6 +35,7 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         ApplyProgressionUnlocks();
         currentStamina = maxStamina;
+        OnStaminaChanged?.Invoke(currentStamina, maxStamina);
     }
 
     private void ApplyProgressionUnlocks()
