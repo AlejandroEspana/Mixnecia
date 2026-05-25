@@ -208,6 +208,7 @@ public class UIManager : MonoBehaviour
 
     public void ContinueFromRestScreen()
     {
+        if (restScreenPanel != null) restScreenPanel.SetActive(false);
         if (SceneController.Instance != null)
         {
             SceneController.Instance.LoadNextLevel();
