@@ -34,18 +34,18 @@ public class Boss5Final : BossBehavior
             currentAngle += goldenAngle;
             
             // Fast shotgun blast every 1.5 seconds (5-way spread)
-            if (time > 0f && Mathf.FloorToInt(time * 10) % 15 == 0)
+            if (time > 0f && Mathf.FloorToInt(time * 7) % 15 == 0)
             {
                 Transform player = GameObject.FindGameObjectWithTag("Player")?.transform;
                 if (player != null)
                 {
                     Vector3 direction = player.position - transform.position;
                     float baseAngle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg - 90f;
-                    baseAngle -= transform.eulerAngles.z;
+                    baseAngle -= (transform.eulerAngles.z + 180f);
 
                     for (int i = -2; i <= 2; i++)
                     {
-                        SpawnBullet(baseAngle + (i * 15f));
+                        SpawnBullet(baseAngle + (i * 13f));
                     }
                 }
             }
@@ -68,7 +68,7 @@ public class Boss5Final : BossBehavior
             {
                 Vector3 direction = player.position - transform.position;
                 float targetAngle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg - 90f;
-                targetAngle -= transform.eulerAngles.z;
+                targetAngle -= (transform.eulerAngles.z + 180f);
 
                 int circleBullets = 30; // Denser circle
 
@@ -131,7 +131,7 @@ public class Boss5Final : BossBehavior
                     if (script != null)
                     {
                         script.isBoomerang = true;
-                        script.boomerangTime = 3.5f; // Expands huge, then crushes inward
+                        script.boomerangTime = 4.5f; // Expands huge, then crushes inward
                     }
                 }
             }
@@ -142,7 +142,7 @@ public class Boss5Final : BossBehavior
             {
                 Vector3 direction = player.position - transform.position;
                 float baseAngle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg - 90f;
-                SpawnBullet(baseAngle - transform.eulerAngles.z);
+                SpawnBullet(baseAngle - (transform.eulerAngles.z + 180f));
             }
 
             yield return new WaitForSeconds(2.5f);
@@ -171,7 +171,7 @@ public class Boss5Final : BossBehavior
                         if (script != null)
                         {
                             script.isBoomerang = true;
-                            script.boomerangTime = 2.5f;
+                            script.boomerangTime = 3.5f;
                         }
                     }
                 }
@@ -238,7 +238,7 @@ public class Boss5Final : BossBehavior
                     if (script != null)
                     {
                         script.isBoomerang = true;
-                        script.boomerangTime = 1.5f; // Short heartbeat
+                        script.boomerangTime = 2.5f; // Short heartbeat
                     }
                 }
             }

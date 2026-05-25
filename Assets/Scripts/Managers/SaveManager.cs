@@ -164,8 +164,28 @@ public class SaveManager : MonoBehaviour
         }
     }
 
+    public bool WillUnlockSecretLevel()
+    {
+        if (CurrentSaveData == null) return false;
+        
+        // If already unlocked, it stays unlocked!
+        if (CurrentSaveData.isSecretLevelUnlocked) return true;
+        
+        // Check if levels 1-4 (indices 0 to 3) are completed
+        for (int i = 0; i < 4; i++)
+        {
+            if (i >= CurrentSaveData.completedLevels.Length || !CurrentSaveData.completedLevels[i]) return false;
+        }
+        
+        // Check if total deaths is 0
+        return CurrentSaveData.totalDeaths == 0;
+    }
+
     private void CheckSecretLevelUnlock()
     {
+        if (CurrentSaveData == null) return;
+        if (CurrentSaveData.isSecretLevelUnlocked) return; // Keep unlocked forever!
+
         bool allLevelsCompleted = true;
         foreach (bool completed in CurrentSaveData.completedLevels)
         {

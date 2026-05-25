@@ -36,13 +36,43 @@ public class BossHealth : MonoBehaviour
     private void Die()
     {
         if (stateMachine != null) stateMachine.TransitionToState(BossState.Dead);
-        OnBossDefeated?.Invoke();
+        ClearAllEnemyBullets();
         
+        BossNarrative narrative = GetComponent<BossNarrative>();
+        if (narrative != null)
+        {
+            DialogueSequence outro = narrative.GetOutroDialogue();
+            if (outro != null && outro.lines != null && outro.lines.Count > 0)
+            {
+                if (DialogueManager.Instance != null)
+                {
+                    DialogueManager.Instance.PlaySequence(outro, () => {
+                        FinishDeath();
+                    });
+                    return;
+                }
+            }
+        }
+        
+        FinishDeath();
+    }
+
+    private void FinishDeath()
+    {
+        OnBossDefeated?.Invoke();
         if (GameManager.Instance != null)
         {
             GameManager.Instance.TriggerLevelComplete(levelIndex - 1, scoreValue);
         }
-
         gameObject.SetActive(false); // Or trigger death animation
+    }
+
+    private void ClearAllEnemyBullets()
+    {
+        GameObject[] bullets = GameObject.FindGameObjectsWithTag("EnemyBullet");
+        foreach (var b in bullets)
+        {
+            if (b != null) b.SetActive(false);
+        }
     }
 }

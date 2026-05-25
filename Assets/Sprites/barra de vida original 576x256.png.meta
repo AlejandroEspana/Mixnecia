@@ -1,0 +1,455 @@
+fileFormatVersion: 2
+guid: 07463416ae4b46f4c9d1339012f53b7c
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -8324694390296442803
+    second: barra de vida original 576x256_0
+  - first:
+      213: -4841333661460621906
+    second: barra de vida original 576x256_1
+  - first:
+      213: 5825514485932958063
+    second: barra de vida original 576x256_2
+  - first:
+      213: 3820557759706060912
+    second: barra de vida original 576x256_3
+  - first:
+      213: -3289725420788709456
+    second: barra de vida original 576x256_4
+  - first:
+      213: -1227053115055274178
+    second: barra de vida original 576x256_5
+  - first:
+      213: -2328830886275637638
+    second: barra de vida original 576x256_6
+  - first:
+      213: 4247424042568536360
+    second: barra de vida original 576x256_7
+  - first:
+      213: 6343115848097359928
+    second: barra de vida original 576x256_8
+  - first:
+      213: 2023780214073174220
+    second: barra de vida original 576x256_9
+  - first:
+      213: 2857022275835750881
+    second: barra de vida original 576x256_10
+  - first:
+      213: 2792030390840170029
+    second: barra de vida original 576x256_11
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: VisionOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: barra de vida original 576x256_0
+      rect:
+        serializedVersion: 2
+        x: 13
+        y: 208
+        width: 164
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d4881b2ee8eb87c80800000000000000
+      internalID: -8324694390296442803
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: barra de vida original 576x256_1
+      rect:
+        serializedVersion: 2
+        x: 205
+        y: 208
+        width: 164
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ea59f757fa020dcb0800000000000000
+      internalID: -4841333661460621906
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: barra de vida original 576x256_2
+      rect:
+        serializedVersion: 2
+        x: 397
+        y: 208
+        width: 164
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f612def5f8268d050800000000000000
+      internalID: 5825514485932958063
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: barra de vida original 576x256_3
+      rect:
+        serializedVersion: 2
+        x: 13
+        y: 144
+        width: 164
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 078542f4a09550530800000000000000
+      internalID: 3820557759706060912
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: barra de vida original 576x256_4
+      rect:
+        serializedVersion: 2
+        x: 205
+        y: 144
+        width: 164
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0b70155d82c8852d0800000000000000
+      internalID: -3289725420788709456
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: barra de vida original 576x256_5
+      rect:
+        serializedVersion: 2
+        x: 397
+        y: 144
+        width: 164
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e37089c61b1a8fee0800000000000000
+      internalID: -1227053115055274178
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: barra de vida original 576x256_6
+      rect:
+        serializedVersion: 2
+        x: 13
+        y: 80
+        width: 164
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a7e1599c5a45eafd0800000000000000
+      internalID: -2328830886275637638
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: barra de vida original 576x256_7
+      rect:
+        serializedVersion: 2
+        x: 205
+        y: 80
+        width: 164
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 82150c3b9a1e1fa30800000000000000
+      internalID: 4247424042568536360
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: barra de vida original 576x256_8
+      rect:
+        serializedVersion: 2
+        x: 397
+        y: 80
+        width: 164
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8386efea146470850800000000000000
+      internalID: 6343115848097359928
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: barra de vida original 576x256_9
+      rect:
+        serializedVersion: 2
+        x: 13
+        y: 16
+        width: 164
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cc8ab4bd169e51c10800000000000000
+      internalID: 2023780214073174220
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: barra de vida original 576x256_10
+      rect:
+        serializedVersion: 2
+        x: 205
+        y: 16
+        width: 164
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1e9619a6f9e26a720800000000000000
+      internalID: 2857022275835750881
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: barra de vida original 576x256_11
+      rect:
+        serializedVersion: 2
+        x: 397
+        y: 16
+        width: 164
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d269f1009d84fb620800000000000000
+      internalID: 2792030390840170029
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      barra de vida original 576x256_0: -8324694390296442803
+      barra de vida original 576x256_1: -4841333661460621906
+      barra de vida original 576x256_10: 2857022275835750881
+      barra de vida original 576x256_11: 2792030390840170029
+      barra de vida original 576x256_2: 5825514485932958063
+      barra de vida original 576x256_3: 3820557759706060912
+      barra de vida original 576x256_4: -3289725420788709456
+      barra de vida original 576x256_5: -1227053115055274178
+      barra de vida original 576x256_6: -2328830886275637638
+      barra de vida original 576x256_7: 4247424042568536360
+      barra de vida original 576x256_8: 6343115848097359928
+      barra de vida original 576x256_9: 2023780214073174220
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
