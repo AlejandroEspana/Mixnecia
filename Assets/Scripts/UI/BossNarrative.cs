@@ -2,10 +2,24 @@ using UnityEngine;
 
 public class BossNarrative : MonoBehaviour
 {
-    [Header("Narrative Sequences")]
+    [Header("Narrative Configuration")]
+    public LevelID levelID;
+    public bool loadFromDatabase = true;
+
+    [Header("Manual Narrative Sequences")]
     public DialogueSequence introDialogue;
     public DialogueSequence outroDialogue;
     public DialogueSequence loreSequence;
+
+    private void Awake()
+    {
+        if (loadFromDatabase)
+        {
+            introDialogue = DialogueDatabase.GetIntro(levelID);
+            outroDialogue = DialogueDatabase.GetOutro(levelID);
+            // loreSequence puede cargarse de forma similar si se añade al DialogueDatabase
+        }
+    }
 
     private void Start()
     {
@@ -16,7 +30,7 @@ public class BossNarrative : MonoBehaviour
         }
 
         // Play Intro immediately when boss spawns
-        if (DialogueManager.Instance != null && introDialogue != null && introDialogue.lines.Count > 0)
+        if (DialogueManager.Instance != null && introDialogue != null && introDialogue.lines != null && introDialogue.lines.Count > 0)
         {
             DialogueManager.Instance.PlaySequence(introDialogue, null);
         }

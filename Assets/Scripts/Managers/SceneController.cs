@@ -64,11 +64,37 @@ public class SceneController : MonoBehaviour
         {
             if (SaveManager.Instance != null && SaveManager.Instance.CurrentSaveData.isSecretLevelUnlocked)
             {
+                Debug.Log("SceneController: Secret level unlocked. Loading Level 6.");
                 SceneManager.LoadScene(7); // Secret Level
                 if (GameManager.Instance != null) GameManager.Instance.ResetCurrentScore(false);
             }
             else
             {
+                Debug.Log("SceneController: Secret level NOT unlocked. Attempting to show credits.");
+                if (CreditsManager.Instance != null)
+                {
+                    Debug.Log("SceneController: CreditsManager found. Starting credits.");
+                    CreditsManager.Instance.StartCredits(() => { LoadMainMenu(); });
+                }
+                else
+                {
+                    Debug.LogWarning("SceneController: CreditsManager is NULL! Skipping directly to Main Menu.");
+                    LoadMainMenu();
+                }
+            }
+        }
+        // If we just finished Secret Level (Build Index 7), roll credits and return to menu
+        else if (currentIndex == 7)
+        {
+            Debug.Log("SceneController: Finished Secret Level. Attempting to show credits.");
+            if (CreditsManager.Instance != null)
+            {
+                Debug.Log("SceneController: CreditsManager found. Starting credits.");
+                CreditsManager.Instance.StartCredits(() => { LoadMainMenu(); });
+            }
+            else
+            {
+                Debug.LogWarning("SceneController: CreditsManager is NULL! Skipping directly to Main Menu.");
                 LoadMainMenu();
             }
         }
@@ -80,7 +106,17 @@ public class SceneController : MonoBehaviour
         }
         else
         {
-            LoadMainMenu();
+            Debug.Log("SceneController: Finished last normal level. Attempting to show credits.");
+            if (CreditsManager.Instance != null)
+            {
+                Debug.Log("SceneController: CreditsManager found. Starting credits.");
+                CreditsManager.Instance.StartCredits(() => { LoadMainMenu(); });
+            }
+            else
+            {
+                Debug.LogWarning("SceneController: CreditsManager is NULL! Skipping directly to Main Menu.");
+                LoadMainMenu();
+            }
         }
     }
 

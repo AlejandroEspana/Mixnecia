@@ -104,9 +104,16 @@ public class DialogueManager : MonoBehaviour
         DialogueLine line = linesQueue.Dequeue();
         
         if (nameText != null) nameText.text = line.speakerName;
-        if (portraitImage != null && line.speakerPortrait != null)
+        
+        Sprite portraitToUse = line.speakerPortrait;
+        if (portraitToUse == null && PortraitManager.Instance != null)
         {
-            portraitImage.sprite = line.speakerPortrait;
+            portraitToUse = PortraitManager.Instance.GetPortrait(line.speakerName);
+        }
+
+        if (portraitImage != null && portraitToUse != null)
+        {
+            portraitImage.sprite = portraitToUse;
             portraitImage.enabled = true;
             
             // Flip portrait depending on who is talking
