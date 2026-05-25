@@ -174,6 +174,25 @@ public class UIManager : MonoBehaviour
     {
         if (GameManager.Instance != null && GameManager.Instance.CurrentBossNarrative != null)
         {
+            // If Level 5 and Secret Level is NOT unlocked, skip Rest Screen and go straight to credits via SceneController.LoadNextLevel()
+            if (GameManager.Instance.CurrentBossNarrative.levelID == LevelID.Level5_Rend)
+            {
+                if (SaveManager.Instance != null && SaveManager.Instance.CurrentSaveData != null && !SaveManager.Instance.CurrentSaveData.isSecretLevelUnlocked)
+                {
+                    if (levelCompletePanel != null) levelCompletePanel.SetActive(false);
+                    if (SceneController.Instance != null) SceneController.Instance.LoadNextLevel();
+                    return;
+                }
+            }
+
+            // If Level 6 (Secret Level/Tonicity), skip Rest Screen and go straight to credits via SceneController.LoadNextLevel()
+            if (GameManager.Instance.CurrentBossNarrative.levelID == LevelID.Level6_Tonicity)
+            {
+                if (levelCompletePanel != null) levelCompletePanel.SetActive(false);
+                if (SceneController.Instance != null) SceneController.Instance.LoadNextLevel();
+                return;
+            }
+
             DialogueSequence lore = GameManager.Instance.CurrentBossNarrative.loreSequence;
             if (lore != null && lore.lines != null && lore.lines.Count > 0)
             {

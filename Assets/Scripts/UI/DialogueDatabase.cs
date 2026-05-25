@@ -131,17 +131,44 @@ public static class DialogueDatabase
                     Line("NYCTAGIN", "Dile que vas de mi parte. No prometo que cambie algo, pero al menos te escucha antes de atacar.", false)
                 );
             case LevelID.Level5_Rend:
-                return Seq(
-                    Line("REND", "¡Eso sí que fue bueno! ¡Hacía tiempo que alguien me hacía sudar así! Bien, bien, bien. Te lo mereces, no hay duda.", false),
-                    Line("REND", "Dark & Stormy. Ron oscuro, ginger beer, lima. Fuerte, directo, sin pretensiones. Como todo acá.", false),
-                    Line("MIXEL", "*Lo toma. Bebe.* Es contundente. Sin disculpas. Un trago que sabe exactamente lo que es. Tampoco es lo que busco.", true),
-                    Line("REND", "No me sorprende. Nunca me dijeron que buscabas algo específico. Solo vine aquí a pelear, ¿sabes? Toma eso. Igual te sirve de algo.", false),
-                    Line("MIXEL", "El bar de la entrada de la zona. Cinderhall. ¿Puedes ayudarme?", true),
-                    Line("REND", "Ah. Ese lugar. Toma. Es un pase. Con eso entras.", false),
-                    Line("REND", "Y está la niebla. No te puedo explicar bien qué es, pero cuando la veas, entenderás. Ten cuidado con ella.", false),
-                    Line("MIXEL", "¿Algo más que deba saber?", true),
-                    Line("REND", "Que si sobrevives, vuelves a pelear conmigo. Esa es la condición. Buena suerte, bartender.", false)
-                );
+                bool willUnlock = false;
+                if (SaveManager.Instance != null && SaveManager.Instance.WillUnlockSecretLevel())
+                {
+                    willUnlock = true;
+                }
+
+                if (willUnlock)
+                {
+                    return Seq(
+                        Line("REND", "¡Eso sí que fue bueno! ¡Hacía tiempo que alguien me hacía sudar así! Bien, bien, bien. Te lo mereces, no hay duda.", false),
+                        Line("REND", "Dark & Stormy. Ron oscuro, ginger beer, lima. Fuerte, directo, sin pretensiones. Como todo acá.", false),
+                        Line("MIXEL", "*Lo toma. Bebe.* Es contundente. Sin disculpas. Un trago que sabe exactamente lo que es. Tampoco es lo que busco.", true),
+                        Line("REND", "No me sorprende. Nunca me dijeron que buscabas algo específico. Solo vine aquí a pelear, ¿sabes? Toma eso. Igual te sirve de algo.", false),
+                        Line("MIXEL", "El bar de la entrada de la zona. Cinderhall. ¿Puedes ayudarme?", true),
+                        Line("REND", "Ah. Ese lugar. Toma. Es un pase. Con eso entras.", false),
+                        Line("REND", "Y está la niebla. No te puedo explicar bien qué es, pero cuando la veas, entenderás. Ten cuidado con ella.", false),
+                        Line("MIXEL", "¿Algo más que deba saber?", true),
+                        Line("REND", "Que si sobrevives, vuelves a pelear conmigo. Esa es la condición. Buena suerte, bartender. Cinderhall te espera... y Tonic también.", false)
+                    );
+                }
+                else
+                {
+                    return Seq(
+                        Line("REND", "¡Eso sí que fue bueno! ¡Hacía tiempo que alguien me hacía sudar así! Bien, bien, bien. Te lo mereces, no hay duda.", false),
+                        Line("REND", "Dark & Stormy. Ron oscuro, ginger beer, lima. Fuerte, directo, sin pretensiones. Como todo acá.", false),
+                        Line("MIXEL", "*Lo toma. Bebe.* Es contundente. Sin disculpas. Un trago que sabe exactamente lo que es. Tampoco es lo que busco.", true),
+                        Line("REND", "No me sorprende. Nunca me dijeron que buscabas algo específico. Solo vine aquí a pelear, ¿sabes? Toma eso. Igual te sirve de algo.", false),
+                        Line("MIXEL", "El bar de la entrada de la zona. Cinderhall. ¿Puedes ayudarme?", true),
+                        Line("REND", "Ah... Cinderhall. Escucha, muchacho. He estado observando tu recorrido. Has tenido tropiezos en el camino. Has 'muerto' en tus intentos de superación.", false),
+                        Line("REND", "Cinderhall no es un bar cualquiera. La bruma y la niebla gótica que lo envuelven consumirán a cualquiera que no sea absolutamente perfecto en su técnica y espíritu.", false),
+                        Line("REND", "Si entras allí ahora, con esos errores en tu historial, la niebla te atrapará para siempre. No puedo darte el pase. Es por tu propio bien.", false),
+                        Line("MIXEL", "(frustrado) ¿Entonces este es el fin? ¿No podré recordar mi gran receta?", true),
+                        Line("REND", "Has aprendido mucho y has conseguido grandes recetas de Zest, Bastien, Every Low y Nyctagin. Pero para la receta legendaria final... necesitas la perfección absoluta.", false),
+                        Line("REND", "Vuelve a empezar. Entrena. Consigue un recorrido impecable, sin caer ni una sola vez, y entonces el pase a Tonicity y la niebla de Cinderhall serán tuyos.", false),
+                        Line("MIXEL", "*Mira sus manos, luego las recetas guardadas.* Tienes razón. Volveré a intentarlo. Seré perfecto.", true),
+                        Line("NARRADOR", "Mixel ha completado su recorrido básico, pero la niebla de Cinderhall permanece cerrada para él. Con determinación en su mirada, se prepara para comenzar de nuevo, buscando la perfección absoluta de un bartender legendario.", false)
+                    );
+                }
             case LevelID.Level6_Tonicity:
                 return Seq(
                     Line("TONIC", "Bien. Muy bien.", false),

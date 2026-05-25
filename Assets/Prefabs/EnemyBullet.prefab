@@ -61,7 +61,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 79ca37a3fc1ab52438a0eeff5aaa3396, type: 2}
+  - {fileID: 2100000, guid: 1fac7061aff47924b93eeb04c6618b6f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -173,3 +173,5 @@ MonoBehaviour:
   enemySpeed: 4
   damage: 1
   isPlayerBullet: 0
+  isBoomerang: 0
+  boomerangTime: 2

@@ -58,14 +58,15 @@ public class SceneController : MonoBehaviour
         if (ObjectPooler.Instance != null) ObjectPooler.Instance.DeactivateAllObjects();
         int currentIndex = SceneManager.GetActiveScene().buildIndex;
         int nextIndex = currentIndex + 1;
+        string activeSceneName = SceneManager.GetActiveScene().name;
 
-        // If we just finished Level 5 (Build Index 6), check for Secret Level
-        if (currentIndex == 6)
+        // If we just finished Level 5 (Build Index 6 or name "Level5"), check for Secret Level
+        if (currentIndex == 6 || activeSceneName == "Level5")
         {
-            if (SaveManager.Instance != null && SaveManager.Instance.CurrentSaveData.isSecretLevelUnlocked)
+            if (SaveManager.Instance != null && SaveManager.Instance.CurrentSaveData != null && SaveManager.Instance.CurrentSaveData.isSecretLevelUnlocked)
             {
                 Debug.Log("SceneController: Secret level unlocked. Loading Level 6.");
-                SceneManager.LoadScene(7); // Secret Level
+                SceneManager.LoadScene("Level6"); // Load by name for index-independence
                 if (GameManager.Instance != null) GameManager.Instance.ResetCurrentScore(false);
             }
             else
@@ -83,8 +84,8 @@ public class SceneController : MonoBehaviour
                 }
             }
         }
-        // If we just finished Secret Level (Build Index 7), roll credits and return to menu
-        else if (currentIndex == 7)
+        // If we just finished Secret Level (Build Index 7 or name "Level6"), roll credits and return to menu
+        else if (currentIndex == 7 || activeSceneName == "Level6")
         {
             Debug.Log("SceneController: Finished Secret Level. Attempting to show credits.");
             if (CreditsManager.Instance != null)
@@ -123,6 +124,6 @@ public class SceneController : MonoBehaviour
     public void LoadSecretLevel()
     {
         if (ObjectPooler.Instance != null) ObjectPooler.Instance.DeactivateAllObjects();
-        SceneManager.LoadScene("SecretLevel");
+        SceneManager.LoadScene("Level6");
     }
 }
