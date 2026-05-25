@@ -21,6 +21,15 @@ public class BossNarrative : MonoBehaviour
         }
     }
 
+    public DialogueSequence GetOutroDialogue()
+    {
+        if (loadFromDatabase)
+        {
+            outroDialogue = DialogueDatabase.GetOutro(levelID);
+        }
+        return outroDialogue;
+    }
+
     private void Start()
     {
         // Register this narrative to the GameManager so UIManager can access the Lore sequence later

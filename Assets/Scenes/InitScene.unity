@@ -291,6 +291,13 @@ MonoBehaviour:
   - tag: EnemyBullet
     prefab: {fileID: 6291463805967244756, guid: f4042fa1ccf9a264381e2665d999c19a, type: 3}
     size: 5000
+  bossBulletMaterials:
+  - {fileID: 2100000, guid: 1fac7061aff47924b93eeb04c6618b6f, type: 2}
+  - {fileID: 2100000, guid: cdc8d802f643f75479810622d2db57af, type: 2}
+  - {fileID: 2100000, guid: 2fc048dc65f42bd41929907ec43e0086, type: 2}
+  - {fileID: 2100000, guid: 025f9cfb3c5dc5c419ae1434dbe588e1, type: 2}
+  - {fileID: 2100000, guid: c3a84619482ac79419883e5d04f0f530, type: 2}
+  - {fileID: 2100000, guid: 81574469bf6d8724cbe297aa334a3613, type: 2}
 --- !u!114 &788316314
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -660,10 +667,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::CreditsManager
   creditsPanel: {fileID: 2052121913}
   creditsText: {fileID: 1944996416}
-  scrollSpeed: 50
+  scrollSpeed: 75
   creditsString: "MIXEL - A Visual Novel\n\nGame Design & Story\nAlejandro Espa\xF1a\nCarlos
     David Burbano\n\nArt & Sprites\nLuciana Cuenca\n\nProgramming\nAlejandro Espa\xF1a\nLuciana
-    Cuenca\nCarlos David Burbano\n\nThanks for playing!"
+    Cuenca\nCarlos David Burbano\n\nMusic\nAlejandro Espa\xF1a\n\nsaxophonist\nJhon
+    Walker\n\n\nThanks for playing!"
 --- !u!114 &788316322
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -39,14 +39,18 @@ public class BossHealth : MonoBehaviour
         ClearAllEnemyBullets();
         
         BossNarrative narrative = GetComponent<BossNarrative>();
-        if (narrative != null && narrative.outroDialogue != null && narrative.outroDialogue.lines != null && narrative.outroDialogue.lines.Count > 0)
+        if (narrative != null)
         {
-            if (DialogueManager.Instance != null)
+            DialogueSequence outro = narrative.GetOutroDialogue();
+            if (outro != null && outro.lines != null && outro.lines.Count > 0)
             {
-                DialogueManager.Instance.PlaySequence(narrative.outroDialogue, () => {
-                    FinishDeath();
-                });
-                return;
+                if (DialogueManager.Instance != null)
+                {
+                    DialogueManager.Instance.PlaySequence(outro, () => {
+                        FinishDeath();
+                    });
+                    return;
+                }
             }
         }
         
